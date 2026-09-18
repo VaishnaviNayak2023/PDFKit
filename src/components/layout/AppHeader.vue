@@ -69,8 +69,6 @@
       @click="toggleTheme"
     />
 
-    <q-btn unelevated no-caps color="primary" label="Sign In" class="sign-in-btn" />
-
     <q-btn
       flat
       round
@@ -180,10 +178,5 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   color: #a1a1aa;
   font-size: 14px;
   font-weight: 500;
-}
-
-.sign-in-btn {
-  border-radius: 10px;
-  padding: 0 16px;
 }
 </style>
