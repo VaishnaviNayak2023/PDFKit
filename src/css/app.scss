@@ -1,0 +1,32 @@
+:root {
+  --pk-bg: #050505;
+  --pk-surface: #0b0f14;
+  --pk-card: #111827;
+  --pk-elevated: #141b24;
+  --pk-border: rgba(255, 255, 255, 0.06);
+  --pk-primary: #4f8cff;
+  --pk-text: #ffffff;
+  --pk-text-secondary: #a1a1aa;
+  --pk-text-muted: #71717a;
+}
+
+html,
+body,
+#app {
+  background: var(--pk-bg);
+  color: var(--pk-text);
+}
+
+body.body--dark {
+  background: var(--pk-bg);
+}
+
+.pk-card-hover {
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pk-card-hover:hover {
+  transform: translateY(-2px);
+  border-color: rgba(79, 140, 255, 0.45);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}

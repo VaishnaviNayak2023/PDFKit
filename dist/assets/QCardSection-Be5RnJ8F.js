@@ -1,0 +1,1 @@
+import{f as e,i as t,j as n,x as r}from"./_plugin-vue_export-helper-BKzHto3h.js";var i=e({name:`QCardSection`,props:{tag:{type:String,default:`div`},horizontal:Boolean},setup(e,{slots:i}){let a=r(()=>`q-card__section q-card__section--${e.horizontal?`horiz row no-wrap`:`vert`}`);return()=>n(e.tag,{class:a.value},t(i.default))}});export{i as t};
