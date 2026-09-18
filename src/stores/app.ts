@@ -1,9 +1,12 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import type { AppNotification } from '@/types'
+import { Dark } from 'quasar'
 
 export const useAppStore = defineStore('app', () => {
-  const isDarkMode = ref(true)
+  // Initialize dark mode from localStorage or default to true
+  const savedDarkMode = localStorage.getItem('darkMode')
+  const isDarkMode = ref(savedDarkMode !== null ? savedDarkMode === 'true' : true)
   const isOffline = ref(!navigator.onLine)
   const sidebarOpen = ref(true)
   const commandPaletteOpen = ref(false)
@@ -12,7 +15,18 @@ export const useAppStore = defineStore('app', () => {
 
   function toggleDarkMode() {
     isDarkMode.value = !isDarkMode.value
+    Dark.set(isDarkMode.value)
+    localStorage.setItem('darkMode', String(isDarkMode.value))
   }
+
+  // Initialize dark mode on store creation
+  Dark.set(isDarkMode.value)
+
+  // Watch for dark mode changes and persist to localStorage
+  watch(isDarkMode, (newValue) => {
+    Dark.set(newValue)
+    localStorage.setItem('darkMode', String(newValue))
+  })
 
   function toggleSidebar() {
     sidebarOpen.value = !sidebarOpen.value

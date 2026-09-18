@@ -8,16 +8,23 @@ import './css/app.scss'
 
 import App from './App.vue'
 import router from './router'
+import { useAppStore } from './stores/app'
 
 const app = createApp(App)
+const pinia = createPinia()
 
-app.use(createPinia())
+app.use(pinia)
 app.use(router)
+
+// Initialize dark mode from store
+const appStore = useAppStore()
+Dark.set(appStore.isDarkMode)
+
 app.use(Quasar, {
   plugins: { Dark },
   iconSet: quasarIconSet,
   config: {
-    dark: true,
+    dark: appStore.isDarkMode,
     brand: {
       primary: '#4F8CFF',
       secondary: '#8B5CF6',

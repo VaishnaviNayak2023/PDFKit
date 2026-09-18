@@ -84,7 +84,6 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { Dark } from 'quasar'
 import { useAppStore } from '@/stores/app'
 import { useToolsStore } from '@/stores/tools'
 
@@ -113,7 +112,6 @@ function goToTools() {
 
 function toggleTheme() {
   appStore.toggleDarkMode()
-  Dark.set(appStore.isDarkMode)
 }
 
 function onKeydown(event: KeyboardEvent) {
